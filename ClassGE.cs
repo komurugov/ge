@@ -32,5 +32,17 @@ namespace geApp
             foreach (var s in _shapes)
                 s.Draw(g, width, height);
         }
+
+        public void Increase()
+        {
+            if (_select != null)
+                _select.Size *= 1.25;
+        }
+
+        public void Decrease()
+        {
+            if (_select != null)
+                _select.Size *= 0.8;
+        }
     }
 }

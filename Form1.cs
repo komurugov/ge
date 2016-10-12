@@ -21,10 +21,15 @@ namespace geApp
             _graphics = CreateGraphics();
         }
 
+        void _imageRefresh()
+        {
+            panelImage.Invalidate();
+        }
+
         void _addShape(Type t)
         {
             _model.AddShape(t);
-            panelImage.Invalidate();
+            _imageRefresh();
         }
 
         private void toolStripButtonAddPolygon_Click(object sender, EventArgs e)
@@ -54,7 +59,19 @@ namespace geApp
 
         private void panelImage_Resize(object sender, EventArgs e)
         {
-            (sender as Panel).Invalidate();
+            _imageRefresh();
+        }
+
+        private void toolStripButtonIncrease_Click(object sender, EventArgs e)
+        {
+            _model.Increase();
+            _imageRefresh();
+        }
+
+        private void toolStripButtonDecrease_Click(object sender, EventArgs e)
+        {
+            _model.Decrease();
+            _imageRefresh();
         }
     }
 }
