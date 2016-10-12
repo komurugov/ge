@@ -7,5 +7,6 @@ namespace geApp
 {
     abstract class ClassShape
     {
+        public abstract void Draw(System.Drawing.Graphics g);
     }
 }
