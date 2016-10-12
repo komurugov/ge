@@ -90,6 +90,7 @@
             this.panelImage.Size = new System.Drawing.Size(260, 222);
             this.panelImage.TabIndex = 3;
             this.panelImage.Paint += new System.Windows.Forms.PaintEventHandler(this.panelImage_Paint);
+            this.panelImage.Resize += new System.EventHandler(this.panelImage_Resize);
             // 
             // FormMain
             // 

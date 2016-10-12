@@ -8,10 +8,9 @@ namespace geApp
 {
     class ClassShapeEllipse : ClassShape
     {
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics g, int width, int height)
         {
-            Rectangle rectangle = new System.Drawing.Rectangle(0, 0, 150, 150);
-            g.DrawEllipse(System.Drawing.Pens.Red, rectangle);
+            g.DrawEllipse(System.Drawing.Pens.Red, _boundRectangle(width, height));
         }
     }
 }

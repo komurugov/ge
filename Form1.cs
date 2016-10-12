@@ -39,7 +39,7 @@ namespace geApp
 
         private void pictureBoxMain_Paint(object sender, PaintEventArgs e)
         {
-            _model.Draw(e.Graphics);
+//            _model.Draw(e.Graphics);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,7 +49,12 @@ namespace geApp
 
         private void panelImage_Paint(object sender, PaintEventArgs e)
         {
-            _model.Draw(e.Graphics);
+            _model.Draw(e.Graphics, (sender as Panel).Width, (sender as Panel).Height);
+        }
+
+        private void panelImage_Resize(object sender, EventArgs e)
+        {
+            (sender as Panel).Invalidate();
         }
     }
 }

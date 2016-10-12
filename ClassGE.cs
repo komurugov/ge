@@ -9,21 +9,28 @@ namespace geApp
     class ClassGE
     {
         List<ClassShape> _shapes = new List<ClassShape>();// { new ClassShapeEllipse() };
+        ClassShape _select;
 
         public void AddShape(Type t)
         {
+            _select = null;
             if (t == typeof(ClassShapeEllipse))
-                _shapes.Add(new ClassShapeEllipse());
+                _select = new ClassShapeEllipse();
             else if (t == typeof(ClassShapePolygon))
-                _shapes.Add(new ClassShapePolygon());
+                _select = new ClassShapePolygon();
+            if (_select != null)
+            {
+                _select.Size = 0.5;
+                _shapes.Add(_select);
+            }
         }
 
-        public void Draw(Graphics g)
+        public void Draw(Graphics g, int width, int height)
         {
 //            Rectangle rectangle = new System.Drawing.Rectangle(0, 0, 150, 150);
   //          g.DrawEllipse(System.Drawing.Pens.Red, rectangle);
             foreach (var s in _shapes)
-                s.Draw(g);
+                s.Draw(g, width, height);
         }
     }
 }
