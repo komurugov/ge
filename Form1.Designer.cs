@@ -41,6 +41,11 @@
             this.toolStripButtonMoveRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMoveUp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMoveDown = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonBlack = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRed = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonGreen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBlue = new System.Windows.Forms.ToolStripButton();
             this.toolStripAdd.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +57,7 @@
             this.toolStripButtonAddEllipse});
             this.toolStripAdd.Location = new System.Drawing.Point(0, 0);
             this.toolStripAdd.Name = "toolStripAdd";
-            this.toolStripAdd.Size = new System.Drawing.Size(284, 25);
+            this.toolStripAdd.Size = new System.Drawing.Size(517, 25);
             this.toolStripAdd.TabIndex = 0;
             this.toolStripAdd.Text = "toolStrip1";
             // 
@@ -85,7 +90,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelImage.Location = new System.Drawing.Point(12, 53);
             this.panelImage.Name = "panelImage";
-            this.panelImage.Size = new System.Drawing.Size(260, 197);
+            this.panelImage.Size = new System.Drawing.Size(493, 360);
             this.panelImage.TabIndex = 3;
             this.panelImage.Paint += new System.Windows.Forms.PaintEventHandler(this.panelImage_Paint);
             this.panelImage.Resize += new System.EventHandler(this.panelImage_Resize);
@@ -99,10 +104,15 @@
             this.toolStripButtonMoveLeft,
             this.toolStripButtonMoveRight,
             this.toolStripButtonMoveUp,
-            this.toolStripButtonMoveDown});
+            this.toolStripButtonMoveDown,
+            this.toolStripSeparator2,
+            this.toolStripButtonBlack,
+            this.toolStripButtonRed,
+            this.toolStripButtonGreen,
+            this.toolStripButtonBlue});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(284, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(517, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -172,11 +182,56 @@
             this.toolStripButtonMoveDown.Text = "Move down";
             this.toolStripButtonMoveDown.Click += new System.EventHandler(this.toolStripButtonMoveDown_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonBlack
+            // 
+            this.toolStripButtonBlack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBlack.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBlack.Image")));
+            this.toolStripButtonBlack.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBlack.Name = "toolStripButtonBlack";
+            this.toolStripButtonBlack.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBlack.Text = "Black";
+            this.toolStripButtonBlack.Click += new System.EventHandler(this.toolStripButtonBlack_Click);
+            // 
+            // toolStripButtonRed
+            // 
+            this.toolStripButtonRed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRed.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRed.Image")));
+            this.toolStripButtonRed.ImageTransparentColor = System.Drawing.Color.MediumAquamarine;
+            this.toolStripButtonRed.Name = "toolStripButtonRed";
+            this.toolStripButtonRed.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRed.Text = "Red";
+            this.toolStripButtonRed.Click += new System.EventHandler(this.toolStripButtonRed_Click);
+            // 
+            // toolStripButtonGreen
+            // 
+            this.toolStripButtonGreen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGreen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonGreen.Image")));
+            this.toolStripButtonGreen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGreen.Name = "toolStripButtonGreen";
+            this.toolStripButtonGreen.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGreen.Text = "Green";
+            this.toolStripButtonGreen.Click += new System.EventHandler(this.toolStripButtonGreen_Click);
+            // 
+            // toolStripButtonBlue
+            // 
+            this.toolStripButtonBlue.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBlue.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBlue.Image")));
+            this.toolStripButtonBlue.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBlue.Name = "toolStripButtonBlue";
+            this.toolStripButtonBlue.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonBlue.Text = "Blue";
+            this.toolStripButtonBlue.Click += new System.EventHandler(this.toolStripButtonBlue_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(517, 425);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelImage);
             this.Controls.Add(this.toolStripAdd);
@@ -205,6 +260,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonMoveRight;
         private System.Windows.Forms.ToolStripButton toolStripButtonMoveUp;
         private System.Windows.Forms.ToolStripButton toolStripButtonMoveDown;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBlack;
+        private System.Windows.Forms.ToolStripButton toolStripButtonRed;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGreen;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBlue;
     }
 }
 

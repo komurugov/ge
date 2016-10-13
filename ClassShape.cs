@@ -11,6 +11,7 @@ namespace geApp
         public double Size { get; set; }
         public double PositionX { get; set; }
         public double PositionY { get; set; }
+        public Color Color { get; set; }
         public abstract void Draw(System.Drawing.Graphics g, int width, int height);
         protected Rectangle _boundRectangle(int width, int height)
         {

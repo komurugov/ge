@@ -10,7 +10,7 @@ namespace geApp
     {
         public override void Draw(Graphics g, int width, int height)
         {
-            g.DrawEllipse(System.Drawing.Pens.Red, _boundRectangle(width, height));
+            g.DrawEllipse(new Pen(Color, 1), _boundRectangle(width, height));
         }
     }
 }

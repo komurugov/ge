@@ -97,5 +97,29 @@ namespace geApp
             _model.Move(90, 0.1);
             _imageRefresh();
         }
+
+        private void toolStripButtonBlack_Click(object sender, EventArgs e)
+        {
+            _model.ChangeColor(Color.Black);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonRed_Click(object sender, EventArgs e)
+        {
+            _model.ChangeColor(Color.Red);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonGreen_Click(object sender, EventArgs e)
+        {
+            _model.ChangeColor(Color.Green);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonBlue_Click(object sender, EventArgs e)
+        {
+            _model.ChangeColor(Color.Blue);
+            _imageRefresh();
+        }
     }
 }

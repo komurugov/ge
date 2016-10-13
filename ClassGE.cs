@@ -23,6 +23,7 @@ namespace geApp
                 _select.PositionX = 0;
                 _select.PositionY = 0;
                 _select.Size = 0.5;
+                _select.Color = Color.Black;
                 _shapes.Add(_select);
             }
         }
@@ -54,6 +55,12 @@ namespace geApp
                 _select.PositionX += shift * Math.Cos(angle * Math.PI / 180);
                 _select.PositionY += shift * Math.Sin(angle * Math.PI / 180);
             }
+        }
+
+        public void ChangeColor(Color color)
+        {
+            if (_select != null)
+                _select.Color = color;
         }
     }
 }
