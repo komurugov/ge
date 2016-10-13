@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization;
 
 namespace geApp
 {
-    class ClassGE
+    [DataContract] class ClassGE
     {
-        List<ClassShape> _shapes = new List<ClassShape>();// { new ClassShapeEllipse() };
+        [DataMember]
+        int x = 10;
+        [DataMember] List<ClassShape> _shapes = new List<ClassShape>();// { new ClassShapeEllipse() };
         ClassShape _select;
 
         public void AddShape(Type t)
@@ -61,6 +65,23 @@ namespace geApp
         {
             if (_select != null)
                 _select.Color = color;
+        }
+
+        public void SaveToFile(string fileName)
+        {
+                //using (Stream fs = 
+                {
+                    var ds = new System.Runtime.Serialization.DataContractSerializer(typeof(ClassGE), new Type[] {typeof(ClassShapePolygon), typeof(ClassShapeEllipse)} );
+                    using (Stream stream = File.Open(fileName, FileMode.Create))
+                        ds.WriteObject(stream, this);
+                }
+        }
+
+        public static ClassGE LoadFromFile(string fileName)
+        {
+            var ds = new System.Runtime.Serialization.DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
+            using (Stream stream = File.Open(fileName, FileMode.Open))
+                return ds.ReadObject(stream) as ClassGE;
         }
     }
 }

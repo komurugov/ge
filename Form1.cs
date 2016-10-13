@@ -121,5 +121,22 @@ namespace geApp
             _model.ChangeColor(Color.Blue);
             _imageRefresh();
         }
+
+        private void toolStripButtonSaveToFiile_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _model.SaveToFile(saveFileDialog1.FileName);
+            }
+        }
+
+        private void toolStripButtonOpenFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _model = ClassGE.LoadFromFile(openFileDialog1.FileName);
+                _imageRefresh();
+            }
+        }
     }
 }

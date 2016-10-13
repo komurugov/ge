@@ -33,7 +33,7 @@
             this.toolStripButtonAddPolygon = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAddEllipse = new System.Windows.Forms.ToolStripButton();
             this.panelImage = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripOnSelect = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonIncrease = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDecrease = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -46,8 +46,14 @@
             this.toolStripButtonRed = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGreen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonBlue = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCommon = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonOpenFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSaveToFiile = new System.Windows.Forms.ToolStripButton();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolStripAdd.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStripOnSelect.SuspendLayout();
+            this.toolStripCommon.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripAdd
@@ -88,16 +94,16 @@
             this.panelImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelImage.Location = new System.Drawing.Point(12, 53);
+            this.panelImage.Location = new System.Drawing.Point(12, 78);
             this.panelImage.Name = "panelImage";
-            this.panelImage.Size = new System.Drawing.Size(493, 360);
+            this.panelImage.Size = new System.Drawing.Size(493, 335);
             this.panelImage.TabIndex = 3;
             this.panelImage.Paint += new System.Windows.Forms.PaintEventHandler(this.panelImage_Paint);
             this.panelImage.Resize += new System.EventHandler(this.panelImage_Resize);
             // 
-            // toolStrip1
+            // toolStripOnSelect
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripOnSelect.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonIncrease,
             this.toolStripButtonDecrease,
             this.toolStripSeparator1,
@@ -110,11 +116,11 @@
             this.toolStripButtonRed,
             this.toolStripButtonGreen,
             this.toolStripButtonBlue});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(517, 25);
-            this.toolStrip1.TabIndex = 4;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripOnSelect.Location = new System.Drawing.Point(0, 25);
+            this.toolStripOnSelect.Name = "toolStripOnSelect";
+            this.toolStripOnSelect.Size = new System.Drawing.Size(517, 25);
+            this.toolStripOnSelect.TabIndex = 4;
+            this.toolStripOnSelect.Text = "toolStrip1";
             // 
             // toolStripButtonIncrease
             // 
@@ -227,20 +233,58 @@
             this.toolStripButtonBlue.Text = "Blue";
             this.toolStripButtonBlue.Click += new System.EventHandler(this.toolStripButtonBlue_Click);
             // 
+            // toolStripCommon
+            // 
+            this.toolStripCommon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonOpenFile,
+            this.toolStripButtonSaveToFiile});
+            this.toolStripCommon.Location = new System.Drawing.Point(0, 50);
+            this.toolStripCommon.Name = "toolStripCommon";
+            this.toolStripCommon.Size = new System.Drawing.Size(517, 25);
+            this.toolStripCommon.TabIndex = 5;
+            this.toolStripCommon.Text = "toolStrip2";
+            // 
+            // toolStripButtonOpenFile
+            // 
+            this.toolStripButtonOpenFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenFile.Image")));
+            this.toolStripButtonOpenFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenFile.Name = "toolStripButtonOpenFile";
+            this.toolStripButtonOpenFile.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonOpenFile.Text = "Open file...";
+            this.toolStripButtonOpenFile.Click += new System.EventHandler(this.toolStripButtonOpenFile_Click);
+            // 
+            // toolStripButtonSaveToFiile
+            // 
+            this.toolStripButtonSaveToFiile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveToFiile.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveToFiile.Image")));
+            this.toolStripButtonSaveToFiile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveToFiile.Name = "toolStripButtonSaveToFiile";
+            this.toolStripButtonSaveToFiile.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveToFiile.Text = "Save to file...";
+            this.toolStripButtonSaveToFiile.Click += new System.EventHandler(this.toolStripButtonSaveToFiile_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 425);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStripCommon);
+            this.Controls.Add(this.toolStripOnSelect);
             this.Controls.Add(this.panelImage);
             this.Controls.Add(this.toolStripAdd);
             this.Name = "FormMain";
             this.Text = "Graphic Editor";
             this.toolStripAdd.ResumeLayout(false);
             this.toolStripAdd.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStripOnSelect.ResumeLayout(false);
+            this.toolStripOnSelect.PerformLayout();
+            this.toolStripCommon.ResumeLayout(false);
+            this.toolStripCommon.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,7 +296,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonAddPolygon;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddEllipse;
         private System.Windows.Forms.Panel panelImage;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripOnSelect;
         private System.Windows.Forms.ToolStripButton toolStripButtonIncrease;
         private System.Windows.Forms.ToolStripButton toolStripButtonDecrease;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -265,6 +309,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonRed;
         private System.Windows.Forms.ToolStripButton toolStripButtonGreen;
         private System.Windows.Forms.ToolStripButton toolStripButtonBlue;
+        private System.Windows.Forms.ToolStrip toolStripCommon;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOpenFile;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSaveToFiile;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
