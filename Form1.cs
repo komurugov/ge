@@ -73,5 +73,29 @@ namespace geApp
             _model.Decrease();
             _imageRefresh();
         }
+
+        private void toolStripButtonMoveLeft_Click(object sender, EventArgs e)
+        {
+            _model.Move(180, 0.1);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonMoveRight_Click(object sender, EventArgs e)
+        {
+            _model.Move(0, 0.1);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonMoveUp_Click(object sender, EventArgs e)
+        {
+            _model.Move(270, 0.1);
+            _imageRefresh();
+        }
+
+        private void toolStripButtonMoveDown_Click(object sender, EventArgs e)
+        {
+            _model.Move(90, 0.1);
+            _imageRefresh();
+        }
     }
 }

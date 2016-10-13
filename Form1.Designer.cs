@@ -30,12 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStripAdd = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonAddEllipse = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAddPolygon = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAddEllipse = new System.Windows.Forms.ToolStripButton();
             this.panelImage = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonIncrease = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDecrease = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonMoveLeft = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMoveRight = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMoveUp = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMoveDown = new System.Windows.Forms.ToolStripButton();
             this.toolStripAdd.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,17 +56,6 @@
             this.toolStripAdd.TabIndex = 0;
             this.toolStripAdd.Text = "toolStrip1";
             // 
-            // toolStripButtonAddEllipse
-            // 
-            this.toolStripButtonAddEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddEllipse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddEllipse.Image")));
-            this.toolStripButtonAddEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddEllipse.Name = "toolStripButtonAddEllipse";
-            this.toolStripButtonAddEllipse.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAddEllipse.Text = "Add an ellipse";
-            this.toolStripButtonAddEllipse.ToolTipText = "Add an ellipse";
-            this.toolStripButtonAddEllipse.Click += new System.EventHandler(this.toolStripButtonAddEllipse_Click);
-            // 
             // toolStripButtonAddPolygon
             // 
             this.toolStripButtonAddPolygon.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -72,6 +66,17 @@
             this.toolStripButtonAddPolygon.Text = "Add a polygon";
             this.toolStripButtonAddPolygon.ToolTipText = "Add a polygon";
             this.toolStripButtonAddPolygon.Click += new System.EventHandler(this.toolStripButtonAddPolygon_Click);
+            // 
+            // toolStripButtonAddEllipse
+            // 
+            this.toolStripButtonAddEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddEllipse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddEllipse.Image")));
+            this.toolStripButtonAddEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddEllipse.Name = "toolStripButtonAddEllipse";
+            this.toolStripButtonAddEllipse.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAddEllipse.Text = "Add an ellipse";
+            this.toolStripButtonAddEllipse.ToolTipText = "Add an ellipse";
+            this.toolStripButtonAddEllipse.Click += new System.EventHandler(this.toolStripButtonAddEllipse_Click);
             // 
             // panelImage
             // 
@@ -89,7 +94,12 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonIncrease,
-            this.toolStripButtonDecrease});
+            this.toolStripButtonDecrease,
+            this.toolStripSeparator1,
+            this.toolStripButtonMoveLeft,
+            this.toolStripButtonMoveRight,
+            this.toolStripButtonMoveUp,
+            this.toolStripButtonMoveDown});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(284, 25);
@@ -116,6 +126,51 @@
             this.toolStripButtonDecrease.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonDecrease.Text = "Decrease";
             this.toolStripButtonDecrease.Click += new System.EventHandler(this.toolStripButtonDecrease_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonMoveLeft
+            // 
+            this.toolStripButtonMoveLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMoveLeft.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMoveLeft.Image")));
+            this.toolStripButtonMoveLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMoveLeft.Name = "toolStripButtonMoveLeft";
+            this.toolStripButtonMoveLeft.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMoveLeft.Text = "Move left";
+            this.toolStripButtonMoveLeft.Click += new System.EventHandler(this.toolStripButtonMoveLeft_Click);
+            // 
+            // toolStripButtonMoveRight
+            // 
+            this.toolStripButtonMoveRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMoveRight.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMoveRight.Image")));
+            this.toolStripButtonMoveRight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMoveRight.Name = "toolStripButtonMoveRight";
+            this.toolStripButtonMoveRight.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMoveRight.Text = "Move right";
+            this.toolStripButtonMoveRight.Click += new System.EventHandler(this.toolStripButtonMoveRight_Click);
+            // 
+            // toolStripButtonMoveUp
+            // 
+            this.toolStripButtonMoveUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMoveUp.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMoveUp.Image")));
+            this.toolStripButtonMoveUp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMoveUp.Name = "toolStripButtonMoveUp";
+            this.toolStripButtonMoveUp.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMoveUp.Text = "Move up";
+            this.toolStripButtonMoveUp.Click += new System.EventHandler(this.toolStripButtonMoveUp_Click);
+            // 
+            // toolStripButtonMoveDown
+            // 
+            this.toolStripButtonMoveDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMoveDown.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMoveDown.Image")));
+            this.toolStripButtonMoveDown.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMoveDown.Name = "toolStripButtonMoveDown";
+            this.toolStripButtonMoveDown.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMoveDown.Text = "Move down";
+            this.toolStripButtonMoveDown.Click += new System.EventHandler(this.toolStripButtonMoveDown_Click);
             // 
             // FormMain
             // 
@@ -145,6 +200,11 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonIncrease;
         private System.Windows.Forms.ToolStripButton toolStripButtonDecrease;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMoveLeft;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMoveRight;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMoveUp;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMoveDown;
     }
 }
 
