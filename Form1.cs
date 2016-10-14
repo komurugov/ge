@@ -18,6 +18,10 @@ namespace geApp
         {
             InitializeComponent();
 
+   //         this.printDocument1.PrintPage += new
+   //System.Drawing.Printing.PrintPageEventHandler
+   //(this.printDocument1_PrintPage);
+
             _graphics = CreateGraphics();
         }
 
@@ -137,6 +141,22 @@ namespace geApp
                 _model = ClassGE.LoadFromFile(openFileDialog1.FileName);
                 _imageRefresh();
             }
+        }
+
+        private void toolStripButtonPrint_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            };
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+     //       e.Graphics.FillRectangle(Brushes.Red,
+     //new Rectangle(500, 500, 500, 500));
+            _model.Draw(e.Graphics, e.PageBounds.Width, e.PageBounds.Height);
         }
     }
 }
