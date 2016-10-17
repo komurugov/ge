@@ -11,6 +11,8 @@ namespace geApp
     [DataContract]
     class ClassGE    // модель данных, с которыми работает редактор. По сути - векторное изображение (набор фигур).
     {
+        static Type[] _types = new Type[] { typeof(ClassShapeEllipse), typeof(ClassShapePolygon) };   // поддерживаемые типы фигур
+
         [DataMember]
         List<ClassShape> _shapes = new List<ClassShape>(); // фигуры
         ClassShape _select;                                             // выделенная в данный момент фигура
@@ -70,14 +72,14 @@ namespace geApp
 
         public void SaveToFile(string fileName) // сохраняем в файл
         {
-            var ds = new DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
+            var ds = new DataContractSerializer(typeof(ClassGE), _types);
             using (Stream stream = File.Open(fileName, FileMode.Create))
                 ds.WriteObject(stream, this);
         }
 
         public static ClassGE LoadFromFile(string fileName) // загружаем из файла
         {
-            var ds = new DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
+            var ds = new DataContractSerializer(typeof(ClassGE), _types);
             using (Stream stream = File.Open(fileName, FileMode.Open))
                 return ds.ReadObject(stream) as ClassGE;
         }
