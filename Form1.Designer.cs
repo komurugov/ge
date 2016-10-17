@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStripAdd = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonAddPolygon = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonAddEllipse = new System.Windows.Forms.ToolStripButton();
             this.panelImage = new System.Windows.Forms.Panel();
             this.toolStripOnSelect = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonIncrease = new System.Windows.Forms.ToolStripButton();
@@ -55,43 +53,17 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.toolStripAdd.SuspendLayout();
             this.toolStripOnSelect.SuspendLayout();
             this.toolStripCommon.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripAdd
             // 
-            this.toolStripAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonAddPolygon,
-            this.toolStripButtonAddEllipse});
             this.toolStripAdd.Location = new System.Drawing.Point(0, 0);
             this.toolStripAdd.Name = "toolStripAdd";
             this.toolStripAdd.Size = new System.Drawing.Size(517, 25);
             this.toolStripAdd.TabIndex = 0;
             this.toolStripAdd.Text = "toolStrip1";
-            // 
-            // toolStripButtonAddPolygon
-            // 
-            this.toolStripButtonAddPolygon.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddPolygon.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddPolygon.Image")));
-            this.toolStripButtonAddPolygon.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddPolygon.Name = "toolStripButtonAddPolygon";
-            this.toolStripButtonAddPolygon.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAddPolygon.Text = "Add a polygon";
-            this.toolStripButtonAddPolygon.ToolTipText = "Add a polygon";
-            this.toolStripButtonAddPolygon.Click += new System.EventHandler(this.toolStripButtonAddPolygon_Click);
-            // 
-            // toolStripButtonAddEllipse
-            // 
-            this.toolStripButtonAddEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddEllipse.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddEllipse.Image")));
-            this.toolStripButtonAddEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddEllipse.Name = "toolStripButtonAddEllipse";
-            this.toolStripButtonAddEllipse.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAddEllipse.Text = "Add an ellipse";
-            this.toolStripButtonAddEllipse.ToolTipText = "Add an ellipse";
-            this.toolStripButtonAddEllipse.Click += new System.EventHandler(this.toolStripButtonAddEllipse_Click);
             // 
             // panelImage
             // 
@@ -308,8 +280,6 @@
             this.Controls.Add(this.toolStripAdd);
             this.Name = "FormMain";
             this.Text = "Graphic Editor";
-            this.toolStripAdd.ResumeLayout(false);
-            this.toolStripAdd.PerformLayout();
             this.toolStripOnSelect.ResumeLayout(false);
             this.toolStripOnSelect.PerformLayout();
             this.toolStripCommon.ResumeLayout(false);
@@ -322,8 +292,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStripAdd;
-        private System.Windows.Forms.ToolStripButton toolStripButtonAddPolygon;
-        private System.Windows.Forms.ToolStripButton toolStripButtonAddEllipse;
         private System.Windows.Forms.Panel panelImage;
         private System.Windows.Forms.ToolStrip toolStripOnSelect;
         private System.Windows.Forms.ToolStripButton toolStripButtonIncrease;

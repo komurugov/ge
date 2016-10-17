@@ -30,4 +30,9 @@ namespace geApp
             return new Rectangle((int)(width * PositionX), (int)(height * PositionY), (int)(width * Size), (int)(height * Size));
         }
     }
+
+    interface IShapeMetaData
+    {
+        string GetName();
+    }
 }

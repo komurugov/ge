@@ -16,28 +16,20 @@ namespace geApp
         public FormMain()
         {
             InitializeComponent();
+
+            foreach (ClassGE.ShapeBuilder x in ClassGE.Types)   // для каждого поддерживаемого типа фигур
+            {
+                var btn = new ToolStripButton();                // создаем кнопку добавления такой фигуры
+                btn.Text = "Add " + x.Name;
+                ClassGE.ShapeBuilder b = x; // хитрый трюк для scope внутри цикла
+                btn.Click += (sender, e) => { _model.AddShape(b); _imageRefresh(); };
+                toolStripAdd.Items.Add(btn);
+            }
         }
 
         void _imageRefresh()    // вызвать перерисовку изображения
         {
             panelImage.Invalidate();
-        }
-
-        void _addShape( // добавить к изображению фигуру
-            Type t)     // тип фигуры. Если не наследник ClassShape, то ничего не делается
-        {
-            _model.AddShape(t);
-            _imageRefresh();
-        }
-
-        private void toolStripButtonAddPolygon_Click(object sender, EventArgs e)
-        {
-            _addShape(typeof(ClassShapePolygon));
-        }
-
-        private void toolStripButtonAddEllipse_Click(object sender, EventArgs e)
-        {
-            _addShape(typeof(ClassShapeEllipse));
         }
 
         private void panelImage_Paint(object sender, PaintEventArgs e)  // перерисовка изображения

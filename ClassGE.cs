@@ -11,27 +11,38 @@ namespace geApp
     [DataContract]
     class ClassGE    // модель данных, с которыми работает редактор. По сути - векторное изображение (набор фигур).
     {
-        static Type[] _types = new Type[] { typeof(ClassShapeEllipse), typeof(ClassShapePolygon) };   // поддерживаемые типы фигур
+        public delegate ClassShape ShapeVirtualConstuctor();
+
+        public class ShapeBuilder   // тип фигур
+        {
+            Type _type;
+            public Type Type { get { return _type; } }
+            string _name;
+            public string Name { get { return _name; } }
+            ShapeVirtualConstuctor _new;
+            public ShapeVirtualConstuctor New { get { return _new; } }
+            public ShapeBuilder(Type type, string name, ShapeVirtualConstuctor creator) { _type = type; _name = name; _new = creator; }
+        }
+
+        static List<ShapeBuilder> _types = new List<ShapeBuilder>() {    // набор поддерживаемых типов фигур
+            new ShapeBuilder(typeof(ClassShapeEllipse), "an ellipse", () => new ClassShapeEllipse()),
+            new ShapeBuilder(typeof(ClassShapePolygon), "a polygon", () => new ClassShapePolygon())
+        };
+
+        public static List<ShapeBuilder> Types { get { return _types; } }
 
         [DataMember]
         List<ClassShape> _shapes = new List<ClassShape>(); // фигуры
         ClassShape _select;                                             // выделенная в данный момент фигура
 
-        public void AddShape(Type t)    // добавляем фигуру с заданным типом и параметрами по умолчанию и выделяем ее
+        public void AddShape(ShapeBuilder b)    // добавляем фигуру с заданным типом и параметрами по умолчанию и выделяем ее
         {
-            _select = null;
-            if (t == typeof(ClassShapeEllipse))
-                _select = new ClassShapeEllipse();
-            else if (t == typeof(ClassShapePolygon))
-                _select = new ClassShapePolygon();
-            if (_select != null)
-            {
-                _select.PositionX = 0;
-                _select.PositionY = 0;
-                _select.Size = 0.5;
-                _select.Color = Color.Black;
-                _shapes.Add(_select);
-            }
+            _select = b.New();
+            _select.PositionX = 0;
+            _select.PositionY = 0;
+            _select.Size = 0.5;
+            _select.Color = Color.Black;
+            _shapes.Add(_select);
         }
 
         public void Draw(Graphics g, int width, int height) // выводим изображение в Graphics указанных размеров (в пикселах)
@@ -72,14 +83,14 @@ namespace geApp
 
         public void SaveToFile(string fileName) // сохраняем в файл
         {
-            var ds = new DataContractSerializer(typeof(ClassGE), _types);
+            var ds = new DataContractSerializer(typeof(ClassGE), _types.Select<ShapeBuilder, Type>(t => t.Type));
             using (Stream stream = File.Open(fileName, FileMode.Create))
                 ds.WriteObject(stream, this);
         }
 
         public static ClassGE LoadFromFile(string fileName) // загружаем из файла
         {
-            var ds = new DataContractSerializer(typeof(ClassGE), _types);
+            var ds = new DataContractSerializer(typeof(ClassGE), _types.Select<ShapeBuilder, Type>(t => t.Type));
             using (Stream stream = File.Open(fileName, FileMode.Open))
                 return ds.ReadObject(stream) as ClassGE;
         }
