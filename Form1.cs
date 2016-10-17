@@ -11,26 +11,20 @@ namespace geApp
 {
     public partial class FormMain : Form
     {
-        ClassGE _model = new ClassGE();
-        Graphics _graphics;
+        ClassGE _model = new ClassGE(); // модель данных
 
         public FormMain()
         {
             InitializeComponent();
-
-   //         this.printDocument1.PrintPage += new
-   //System.Drawing.Printing.PrintPageEventHandler
-   //(this.printDocument1_PrintPage);
-
-            _graphics = CreateGraphics();
         }
 
-        void _imageRefresh()
+        void _imageRefresh()    // вызвать перерисовку изображения
         {
             panelImage.Invalidate();
         }
 
-        void _addShape(Type t)
+        void _addShape( // добавить к изображению фигуру
+            Type t)     // тип фигуры. Если не наследник ClassShape, то ничего не делается
         {
             _model.AddShape(t);
             _imageRefresh();
@@ -46,17 +40,7 @@ namespace geApp
             _addShape(typeof(ClassShapeEllipse));
         }
 
-        private void pictureBoxMain_Paint(object sender, PaintEventArgs e)
-        {
-//            _model.Draw(e.Graphics);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panelImage_Paint(object sender, PaintEventArgs e)
+        private void panelImage_Paint(object sender, PaintEventArgs e)  // перерисовка изображения
         {
             _model.Draw(e.Graphics, (sender as Panel).Width, (sender as Panel).Height);
         }
@@ -126,7 +110,7 @@ namespace geApp
             _imageRefresh();
         }
 
-        private void toolStripButtonSaveToFiile_Click(object sender, EventArgs e)
+        private void toolStripButtonSaveToFile_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -154,9 +138,7 @@ namespace geApp
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-     //       e.Graphics.FillRectangle(Brushes.Red,
-     //new Rectangle(500, 500, 500, 500));
-            _model.Draw(e.Graphics, e.PageBounds.Width, e.PageBounds.Height);
+            _model.Draw(e.Graphics, e.PageBounds.Width, e.PageBounds.Height); // формирование единственной страницы для печати
         }
     }
 }

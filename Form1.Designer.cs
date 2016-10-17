@@ -48,12 +48,12 @@
             this.toolStripButtonBlue = new System.Windows.Forms.ToolStripButton();
             this.toolStripCommon = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonOpenFile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveToFiile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSaveToFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPrint = new System.Windows.Forms.ToolStripButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonPrint = new System.Windows.Forms.ToolStripButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.toolStripAdd.SuspendLayout();
             this.toolStripOnSelect.SuspendLayout();
@@ -241,7 +241,7 @@
             // 
             this.toolStripCommon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonOpenFile,
-            this.toolStripButtonSaveToFiile,
+            this.toolStripButtonSaveToFile,
             this.toolStripSeparator3,
             this.toolStripButtonPrint});
             this.toolStripCommon.Location = new System.Drawing.Point(0, 50);
@@ -260,23 +260,15 @@
             this.toolStripButtonOpenFile.Text = "Open file...";
             this.toolStripButtonOpenFile.Click += new System.EventHandler(this.toolStripButtonOpenFile_Click);
             // 
-            // toolStripButtonSaveToFiile
+            // toolStripButtonSaveToFile
             // 
-            this.toolStripButtonSaveToFiile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveToFiile.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveToFiile.Image")));
-            this.toolStripButtonSaveToFiile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveToFiile.Name = "toolStripButtonSaveToFiile";
-            this.toolStripButtonSaveToFiile.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveToFiile.Text = "Save to file...";
-            this.toolStripButtonSaveToFiile.Click += new System.EventHandler(this.toolStripButtonSaveToFiile_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
+            this.toolStripButtonSaveToFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveToFile.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveToFile.Image")));
+            this.toolStripButtonSaveToFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveToFile.Name = "toolStripButtonSaveToFile";
+            this.toolStripButtonSaveToFile.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveToFile.Text = "Save to file...";
+            this.toolStripButtonSaveToFile.Click += new System.EventHandler(this.toolStripButtonSaveToFile_Click);
             // 
             // toolStripSeparator3
             // 
@@ -292,6 +284,14 @@
             this.toolStripButtonPrint.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonPrint.Text = "Print...";
             this.toolStripButtonPrint.Click += new System.EventHandler(this.toolStripButtonPrint_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // printDocument1
             // 
@@ -340,7 +340,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonBlue;
         private System.Windows.Forms.ToolStrip toolStripCommon;
         private System.Windows.Forms.ToolStripButton toolStripButtonOpenFile;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveToFiile;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSaveToFile;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

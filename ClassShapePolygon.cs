@@ -8,7 +8,8 @@ using System.Runtime.Serialization;
 namespace geApp
 {
     [DataContract]
-    class ClassShapePolygon : ClassShape
+    class ClassShapePolygon : ClassShape    // многоугольник
+                                            // точнее для простоты пока квадрат
     {
         public override void Draw(Graphics g, int width, int height)
         {

@@ -8,7 +8,8 @@ using System.Runtime.Serialization;
 namespace geApp
 {
     [DataContract]
-    class ClassShapeEllipse : ClassShape
+    class ClassShapeEllipse : ClassShape    // эллипс
+                                            // точнее для простоты пока окружность
     {
         public override void Draw(Graphics g, int width, int height)
         {

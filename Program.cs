@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace geApp
 {
-    static class Program
+    static class Program    // векторный графический редактор
     {
         /// <summary>
         /// Главная точка входа для приложения.

@@ -8,14 +8,14 @@ using System.Runtime.Serialization;
 
 namespace geApp
 {
-    [DataContract] class ClassGE
+    [DataContract]
+    class ClassGE    // модель данных, с которыми работает редактор. По сути - векторное изображение (набор фигур).
     {
         [DataMember]
-        int x = 10;
-        [DataMember] List<ClassShape> _shapes = new List<ClassShape>();// { new ClassShapeEllipse() };
-        ClassShape _select;
+        List<ClassShape> _shapes = new List<ClassShape>(); // фигуры
+        ClassShape _select;                                             // выделенная в данный момент фигура
 
-        public void AddShape(Type t)
+        public void AddShape(Type t)    // добавляем фигуру с заданным типом и параметрами по умолчанию и выделяем ее
         {
             _select = null;
             if (t == typeof(ClassShapeEllipse))
@@ -32,27 +32,27 @@ namespace geApp
             }
         }
 
-        public void Draw(Graphics g, int width, int height)
+        public void Draw(Graphics g, int width, int height) // выводим изображение в Graphics указанных размеров (в пикселах)
         {
-//            Rectangle rectangle = new System.Drawing.Rectangle(0, 0, 150, 150);
-  //          g.DrawEllipse(System.Drawing.Pens.Red, rectangle);
             foreach (var s in _shapes)
                 s.Draw(g, width, height);
         }
 
-        public void Increase()
+        public void Increase()  // меняем размеры выделенной фигуры в 1.25 раза (подобрано чтобы 1.25 * 0.8 = 1.0)
         {
             if (_select != null)
                 _select.Size *= 1.25;
         }
 
-        public void Decrease()
+        public void Decrease()  // меняем размеры выделенной фигуры в 0.8 раза (подобрано чтобы 1.25 * 0.8 = 1.0)
         {
             if (_select != null)
                 _select.Size *= 0.8;
         }
 
-        public void Move(double angle, double shift)
+        public void Move(   // смещаем выделенную фигуру
+            double angle,   // угол в градусах, задающий направление смещения
+            double shift)   // модуль смещения в долях от размеров области вывода
         {
             if (_select != null)
             {
@@ -61,25 +61,23 @@ namespace geApp
             }
         }
 
-        public void ChangeColor(Color color)
+        public void ChangeColor(    // задаем цвет фигуры
+            Color color)
         {
             if (_select != null)
                 _select.Color = color;
         }
 
-        public void SaveToFile(string fileName)
+        public void SaveToFile(string fileName) // сохраняем в файл
         {
-                //using (Stream fs = 
-                {
-                    var ds = new System.Runtime.Serialization.DataContractSerializer(typeof(ClassGE), new Type[] {typeof(ClassShapePolygon), typeof(ClassShapeEllipse)} );
-                    using (Stream stream = File.Open(fileName, FileMode.Create))
-                        ds.WriteObject(stream, this);
-                }
+            var ds = new DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
+            using (Stream stream = File.Open(fileName, FileMode.Create))
+                ds.WriteObject(stream, this);
         }
 
-        public static ClassGE LoadFromFile(string fileName)
+        public static ClassGE LoadFromFile(string fileName) // загружаем из файла
         {
-            var ds = new System.Runtime.Serialization.DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
+            var ds = new DataContractSerializer(typeof(ClassGE), new Type[] { typeof(ClassShapePolygon), typeof(ClassShapeEllipse) });
             using (Stream stream = File.Open(fileName, FileMode.Open))
                 return ds.ReadObject(stream) as ClassGE;
         }
