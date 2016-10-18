@@ -106,16 +106,36 @@ namespace geApp
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                _model.SaveToFile(saveFileDialog1.FileName);
+                try
+                {
+                    _model.SaveToFile(saveFileDialog1.FileName);
+                }
+                catch
+                {
+                    _errorMsg("Saving to file failed.");
+                }
+
             }
+        }
+
+        void _errorMsg(string msg)
+        {
+            MessageBox.Show(msg);
         }
 
         private void toolStripButtonOpenFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                _model = ClassGE.LoadFromFile(openFileDialog1.FileName);
-                _imageRefresh();
+                try
+                {
+                    _model = ClassGE.LoadFromFile(openFileDialog1.FileName);
+                    _imageRefresh();
+                }
+                catch
+                {
+                    _errorMsg("Opening file failed.");
+                }
             }
         }
 
@@ -124,7 +144,14 @@ namespace geApp
             printDialog1.Document = printDocument1;
             if (printDialog1.ShowDialog() == DialogResult.OK)
             {
-                printDocument1.Print();
+                try
+                {
+                    printDocument1.Print();
+                }
+                catch
+                {
+                    _errorMsg("Printing failed.");
+                }
             };
         }
 
